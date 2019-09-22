@@ -1,10 +1,16 @@
 
-
-
+/**
+*LegelParentheses receiving from the user string and prints Legal if the string is a valid-string-parenthesis
+*otherwise prints Illegal.
+*/
 public class LegalParentheses {
-
 	
-	
+	/************************************************************************
+	* Method:   is_string_ok
+	* Purpose:  Check if for all "(" there is ")".
+	* Input:    check - String from user
+	* Return:   boolean
+	************************************************************************/
 	public boolean is_string_ok(String check) {
 		
 		int cnt_open = 0;
