@@ -1,4 +1,5 @@
 
+	* 			num_of_chars - size of substring to check
 /**
 *Comparing gets two strings from user and compares 
 *if they have equal sub string.
@@ -9,6 +10,7 @@ public class Comparing {
 	* Method:   compare_sub_string
 	* Purpose:  Check if there are equal sub strings in two different strings
 	* Input:    first - First string from user
+	* 			second - Second string from user
 	* Return:   boolean
 	************************************************************************/
 	boolean compare_sub_string(String first, String second, int num_of_chars){
