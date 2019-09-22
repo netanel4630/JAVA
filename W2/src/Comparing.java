@@ -1,5 +1,5 @@
 
-			
+
 /**
 *Comparing gets two strings from user and compares 
 *if they have equal sub string.
