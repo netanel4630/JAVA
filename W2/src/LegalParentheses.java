@@ -23,13 +23,11 @@ public class LegalParentheses {
 				}
 				check_open++;
 				check_close--;
-				
 			}
 			
 			if (check_open >= check_close || check_open < 0 || check_close < 0) {
 				overflow = false;
 			}
-			
 		}
 		
 		if (cnt_open == cnt_close) {
