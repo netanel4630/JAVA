@@ -25,7 +25,7 @@ public class Logo_game {
 	private static final int MIN_COMMAND_NUM = 1;
 	private static final int MAX_COMMAND_NUM = 6;
 	private static final int FINISH_COMMAND_NUM = 9;
-	private static final int MARK_COMMANDS = 5;
+	private static final int MARKS_COMMAND = 5;
 	
 	//local arguments
 	private  int penStatus;
@@ -259,7 +259,7 @@ public class Logo_game {
 	public void doCommands() {
 		for (int i = 0 ; i < this.setOfCommands.length; i++) {			
 			if ( (MIN_COMMAND_NUM <= this.setOfCommands[i]) && (MAX_COMMAND_NUM >= this.setOfCommands[i])) {
-				if (MARK_COMMANDS == this.setOfCommands[i]) {
+				if (MARKS_COMMAND == this.setOfCommands[i]) {
 					stepsNum = this.setOfCommands[i + 1]; // take number of steps
 					doCommand(this.setOfCommands[i]);
 					i++; // step over the number of steps
