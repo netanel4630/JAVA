@@ -7,9 +7,10 @@ public class Logo_game {
 	private static final int LEFT = 0;
 	private static final int RIGHT = 1;
 	private static final int RAW = 1;
-	private static final int COLUMN = 1;
+	private static final int COLUMN = 0;
 	private static final int START_POINT_X = 0;
 	private static final int START_POINT_Y = 0;
+	private static final int MARK = 1;
 	
 	//local arguments
 	private static int penStatus;
@@ -19,6 +20,7 @@ public class Logo_game {
 	private int[] setOfCommands;
 	private int locationX;
 	private int locationY;
+	private int stepsNum = 0;
 	
 	
 	public Logo_game(int [] setOfCommands, int sizeOFSetOfCommands) {
@@ -35,6 +37,19 @@ public class Logo_game {
 		
 	}
 	
+	private void printFloor() {
+		for (int i = 0 ; i < FLOOR_SIZE ; i++) {
+			for (int j = 0 ; j < FLOOR_SIZE ; j++) {
+				if (floor[i][j] == MARK) {
+					System.out.print("*");
+				}
+				else {
+					System.out.print("");
+				}
+			}
+			System.out.print("\n");
+		}
+	}
 	
 	private void penUP() {
 		penStatus = PEN_UP;
@@ -45,28 +60,88 @@ public class Logo_game {
 	}
 	
 	private void left() {
-		direction = LEFT;
+		move = LEFT;
+		setDirection();	
 	}
 	
 	private void right() {
-		direction = RIGHT;
+		move = RIGHT;
+		setDirection() ;
 	}
 	
-	private void moveForward(int stepsNum) {
-		try {
-			for (int i = 0 ; i < stepsNum ; i++) {
-				if ()
-			}
-			this.setOfCommands[locationX][locationY];
+	private void setDirection() {
+		if (direction == RAW) {
+			direction = COLUMN;
 		}
+		else {
+			direction = RAW;
+		}
+	}
+	
+	
+	private void moveForward() {
+		if (PEN_DOWN == penStatus) {
+			for (int i = 0 ; i < stepsNum ; i++) {
+				paintStars();
+			}	
+		}
+		else {
+			System.out.println("Cant paint "+stepsNum+" step.\nPen is up.");
+		}
+
+	}
+	
+	private void paintStars() {
+		try {
+			if (RIGHT == move && RAW == direction) {
+				locationX++;
+			}
+			else if (RIGHT == move && COLUMN == direction) {
+				locationY++;
+			}
+			else if (LEFT == move && RAW == direction) {
+				locationX--;
+			}
+			else if (LEFT == move && COLUMN == direction) {
+				locationY--;
+			}					
 			
+			this.floor[locationX][locationY] = MARK;			
+		}
+		
 		catch(Exception ArrayIndexOutOfBoundsException) {
 			System.out.println("Error! out from floor.");
 		}
+	
 	}
 	
-	private void printFloor() {
+	
+    interface MoveAction {
+        void move();
+    }
+
+    private MoveAction[] moveActions = new MoveAction[] {
+        new MoveAction() { public void move() { penUP(); } },
+        new MoveAction() { public void move() { penDown(); } },
+        new MoveAction() { public void move() { right(); } },
+        new MoveAction() { public void move() { left(); } },
+        new MoveAction() { public void move() { moveForward(); } },
+        new MoveAction() { public void move() { printFloor(); } },
+    };
+
+    public void move(int index) {
+        moveActions[index].move();
+    }
+    
+    
+    
+	
+	public void doCommands() {
+		
 		
 	}
+	
+	
+
 	
 }
