@@ -8,7 +8,7 @@
 *In this class we signify the turtle movement and mark it.
 *The turtle movement will be according to the commands received.
 *Commands numbers:
-*	pen up				1
+*	pen up              1
 *	pen down			2
 *	turn right 			3
 *	turn left  			4
