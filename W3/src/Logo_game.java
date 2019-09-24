@@ -206,7 +206,7 @@ public class Logo_game {
 	private void moveForward() {
 		if (PEN_DOWN == penStatus) {
 			for (int i = 0 ; i < stepsNum; i++) {
-				paintStars();
+				markCell();
 			}
 		}
 		else {
@@ -216,12 +216,12 @@ public class Logo_game {
 	}
 	
     /************************************************************************
-    * Function: paintStars()
+    * Function: markCell()
     * Purpose:  Move one cell in floor and mark it.
     * Input:    None  
     * Return:   None
     ************************************************************************/
-	private void paintStars() {
+	private void markCell() {
 		try {
 				switch(direction) {
 					case FACE_UP:
