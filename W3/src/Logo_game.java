@@ -59,7 +59,8 @@ public class Logo_game {
     interface CommandsList {
         void commands();
     }
-
+    
+    //method array
     private CommandsList[] commandsList = new CommandsList[] {
     	new CommandsList() { public void commands() { errorCommand(); } },
     	new CommandsList() { public void commands() { penUP(); } },
@@ -236,7 +237,6 @@ public class Logo_game {
 			System.out.println("Error! out from floor.");
 			System.exit(1);
 		}
-	
 	}
 
     /************************************************************************
