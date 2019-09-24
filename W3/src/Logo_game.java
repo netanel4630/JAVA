@@ -9,9 +9,9 @@
 *The turtle movement will be according to the commands received.
 *Commands numbers:
 *	pen up              1
-*	pen down			2
-*	turn right 			3
-*	turn left  			4
+*	pen down            2
+*	turn right          3
+*	turn left           4
 *	mark n cells        5
 *	print floor         6
 *	finish program      9
