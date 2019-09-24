@@ -1,4 +1,13 @@
-
+/**
+*Logo is a programming language developed in the late 1960s.
+*A logo language has a graphical capability that allows you to draw complex drawings.
+*The language drawing is done by a symbolic "turtle", represented by a triple arrow on the computer screen.
+*Imagine a mechanical turtle walking around a room, controlled by the JAVA application.
+*The turtle holds a pen in two situations, up or down.
+*When the turtle moves with a pen in position down he Leaves traces.
+*In this class we signify the turtle movement and mark it.
+*The turtle movement will be according to the commands received.
+**/
 public class Logo_game {
 	//#define
 	private static final int FLOOR_SIZE = 20;
@@ -28,6 +37,12 @@ public class Logo_game {
 	private  int stepsNum = 0;
 	
 	
+    /************************************************************************
+     * Function: Logo_game()
+     * Purpose:  Constructor method.
+     * Input:    setOfCommands - set of commands  
+     * Return:   None
+     ************************************************************************/
 	public Logo_game(int [] setOfCommands) {
 		floor = new int[FLOOR_SIZE][FLOOR_SIZE];
 		penStatus = PEN_UP;
@@ -39,13 +54,38 @@ public class Logo_game {
 		}
 		locationX = START_POINT_X;
 		locationY = START_POINT_Y;
-		
 	}
 	
-	private void dummy() {
+    interface CommandsList {
+        void commands();
+    }
+
+    private CommandsList[] commandsList = new CommandsList[] {
+    	new CommandsList() { public void commands() { errorCommand(); } },
+    	new CommandsList() { public void commands() { penUP(); } },
+        new CommandsList() { public void commands() { penDown(); } },
+        new CommandsList() { public void commands() { right(); } },
+        new CommandsList() { public void commands() { left(); } },
+        new CommandsList() { public void commands() { moveForward(); } },
+        new CommandsList() { public void commands() { printFloor(); } },
+    };
+
+    /************************************************************************
+     * Function: errorCommand()
+     * Purpose:  This method called when command number not available.
+     * Input:    None  
+     * Return:   None
+     ************************************************************************/
+	private void errorCommand() {
 		System.out.println("Error! Not have this command number");
 	}
 	
+   /************************************************************************
+    * Function: printFloor()
+    * Purpose:  Print only marks in floor.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void printFloor() {
 		for (int i = 0 ; i < FLOOR_SIZE ; i++) {
 			for (int j = 0 ; j < FLOOR_SIZE ; j++) {
@@ -60,24 +100,54 @@ public class Logo_game {
 		}
 	}
 	
+   /************************************************************************
+    * Function: penUP()
+    * Purpose:  Change penStatus value to notify that it not possible to mark.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void penUP() {
 		penStatus = PEN_UP;
 	}
 	
+   /************************************************************************
+    * Function: penDown()
+    * Purpose:  Change penStatus value to notify that it possible to mark.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void penDown() {
 		penStatus = PEN_DOWN;
 	}
 	
+   /************************************************************************
+    * Function: left()
+    * Purpose:  Change move value to left.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void left() {
 		move = LEFT;
 		setDirection();	
 	}
 	
+    /************************************************************************
+    * Function: right()
+    * Purpose:  Change move value to right.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void right() {
 		move = RIGHT;
 		setDirection() ;
 	}
 	
+    /************************************************************************
+    * Function: setDirection()
+    * Purpose:  Set direction follow commands.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void setDirection() {
 		if (RIGHT == move) {
 			switch(direction) {
@@ -117,7 +187,12 @@ public class Logo_game {
 		}
 	}
 	
-	
+    /************************************************************************
+    * Function: moveForward()
+    * Purpose:  Mark cells in floor follow commands.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void moveForward() {
 		if (PEN_DOWN == penStatus) {
 			for (int i = 0 ; i < stepsNum; i++) {
@@ -130,6 +205,12 @@ public class Logo_game {
 
 	}
 	
+    /************************************************************************
+    * Function: paintStars()
+    * Purpose:  Move one cell in floor and mark it.
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	private void paintStars() {
 		try {
 				switch(direction) {
@@ -157,40 +238,33 @@ public class Logo_game {
 		}
 	
 	}
-	
-	
-    interface CommandsList {
-        void commands();
-    }
 
-    private CommandsList[] commandsList = new CommandsList[] {
-    	new CommandsList() { public void commands() { dummy(); } },
-    	new CommandsList() { public void commands() { penUP(); } },
-        new CommandsList() { public void commands() { penDown(); } },
-        new CommandsList() { public void commands() { right(); } },
-        new CommandsList() { public void commands() { left(); } },
-        new CommandsList() { public void commands() { moveForward(); } },
-        new CommandsList() { public void commands() { printFloor(); } },
-    };
-
-    public void move(int index) {
+    /************************************************************************
+    * Function: doCommand()
+    * Purpose:  Do command from setOfCommands
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
+    private void doCommand(int index) {
     	commandsList[index].commands();
     }
-    
-    
-    
 	
+    /************************************************************************
+    * Function: doCommands()
+    * Purpose:  Do the set command from setOfCommands
+    * Input:    None  
+    * Return:   None
+    ************************************************************************/
 	public void doCommands() {
-		for (int i = 0 ; i < this.setOfCommands.length; i++) {
-			
+		for (int i = 0 ; i < this.setOfCommands.length; i++) {			
 			if ( (MIN_COMMAND_NUM <= this.setOfCommands[i]) && (MAX_COMMAND_NUM >= this.setOfCommands[i])) {
 				if (this.setOfCommands[i] == 5) {
 					stepsNum = this.setOfCommands[i + 1];
-					move(this.setOfCommands[i]);
+					doCommand(this.setOfCommands[i]);
 					i++;
 				}
 				else {
-					move(this.setOfCommands[i]); 									
+					doCommand(this.setOfCommands[i]); 									
 				}
 			}
 			else if (FINNISH_COMMAND_NUM == this.setOfCommands[i]){
@@ -198,11 +272,10 @@ public class Logo_game {
 				return;
 			}
 			else {
-				dummy();
+				errorCommand();
 				return;
 			}
 		}		
 	}
-
 	
 }

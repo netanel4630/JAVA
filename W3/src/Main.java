@@ -7,6 +7,7 @@ public class Main {
 		
 		Logo_game test = new Logo_game(setOfCommands);
 		test.doCommands();
+		
 
 	}
 
