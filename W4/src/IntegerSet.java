@@ -24,6 +24,12 @@ public class IntegerSet {
 		}	
 	}
 	
+	/************************************************************************
+	* Function: union()
+	* Purpose:  Return new IntegerSet that contain all the elements from s1, s2
+	* Input:    s1 - IntegerSet, s2 - IntegerSet
+	* Return:   New IntegerSet that contain elements from s1, s2
+	************************************************************************/
 	public static IntegerSet union(IntegerSet s1, IntegerSet s2) {
 		boolean integerSetUnion[] = new boolean[INTEGER_SET_SIZE];
 		
@@ -35,7 +41,14 @@ public class IntegerSet {
 
 		return new IntegerSet(integerSetUnion);
 	}
-	
+
+	/************************************************************************
+	* Function: intersection()
+	* Purpose:  Return new IntegerSet that contain all the intersection 
+	*			elements from s1, s2
+	* Input:    s1 - IntegerSet, s2 - IntegerSet
+	* Return:   New IntegerSet that contain all intersection elements from s1, s2
+	************************************************************************/
 	public static IntegerSet intersection(IntegerSet s1, IntegerSet s2) {
 		boolean integerSetIntersection[] = new boolean[INTEGER_SET_SIZE];
 		
@@ -48,9 +61,15 @@ public class IntegerSet {
 		return new IntegerSet(integerSetIntersection);
 	}
 	
+	/************************************************************************
+	* Function: insertElement()
+	* Purpose:  Insert element to integerSet 
+	* Input:    i - new element
+	* Return:   None
+	************************************************************************/
 	public void insertElement(int i) {
 		if (integerSet[i] == true || i > INTEGER_SET_SIZE) {
-			System.out.printf("Error! in insertElement function");
+			System.out.printf("Error! in insertElement function.\n");
 		}
 		else {
 			integerSet[i] = true;
@@ -58,7 +77,12 @@ public class IntegerSet {
 		
 	}
 	
-
+	/************************************************************************
+	* Function: insertElement()
+	* Purpose:  Delete element from integerSet 
+	* Input:    i - element to delete
+	* Return:   None
+	************************************************************************/
 	public void deleteElement (int i) {
 		if (integerSet[i] == false || i > INTEGER_SET_SIZE) {
 			System.out.printf("Error! in insertElement function");
@@ -68,6 +92,12 @@ public class IntegerSet {
 		}
 	}
 	
+	/************************************************************************
+	* Function: isEmpty()
+	* Purpose:  Check if integerSet empty 
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	public boolean isEmpty() {
 		for(int i = 0 ; i < INTEGER_SET_SIZE ; i++) {
 			if (true == integerSet[i]) {
@@ -78,6 +108,12 @@ public class IntegerSet {
 		return true;
 	}
 	
+	/************************************************************************
+	* Function: contains()
+	* Purpose:  Check if integerSet contain element i
+	* Input:    i - element to check
+	* Return:   None
+	************************************************************************/
 	public boolean contains(int i) {
 		if (true == integerSet[i]) {
 			return true;
@@ -86,6 +122,12 @@ public class IntegerSet {
 	}
 	 
 	
+	/************************************************************************
+	* Function: size()
+	* Purpose:  Check size of integerSet
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	public int size() {
 		int cnt = 0;
 		for (int i = 0 ; i < INTEGER_SET_SIZE ; i++) {
@@ -97,20 +139,34 @@ public class IntegerSet {
 		return cnt;
 	}
 	
+	/************************************************************************
+	* Function: toString()
+	* Purpose:  Print integerSet
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	public String toString() {
 		String str = "{";
 			
 		for (int i = 0 ; i < INTEGER_SET_SIZE ; i++) {
 			if (true == integerSet[i]) {
-				str += "," + i;
+				str += i + ",";
 			}
 		}
-		str = "}";
 		
+		str = str.substring(0, str.length() - 1); //delete the last ','
+		str += "}";
+
 		return str;
 		
 	}
 	
+	/************************************************************************
+	* Function: isEqual()
+	* Purpose:  Check if integerSet s is equal to this integerSet
+	* Input:    s - integerSet
+	* Return:   None
+	************************************************************************/
 	public boolean isEqual(IntegerSet s) {
 		for (int i = 0 ; i < INTEGER_SET_SIZE ; i++) {
 			if (this.integerSet[i] != s.integerSet[i]) {
