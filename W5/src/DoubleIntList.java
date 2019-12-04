@@ -38,8 +38,8 @@ public class DoubleIntList {
 	
 	int deleteFirst() {
 		int temp = 0;
-		if(head == null) {
-			head.info = temp;
+		if(head != null) {
+			temp = head.info;
 			head = head.Next;
 			return temp;
 		}

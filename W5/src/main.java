@@ -16,6 +16,14 @@ public class main {
 	     for(i=0; i < n; i++){
 	    	 System.out.println(doubleIntList.deleteLast());
 	    	 }
+	     
+	     IntStack intStack = new  IntStack();
+	     for(i=0; i < n; i++)
+	    	 intStack.push(i);
+	     System.out.println("Generated Stack:");
+	     for(i=0; i < n; i++){
+	    	 System.out.println(intStack.pop());
+	    	 } // for
 	}
 
 }
