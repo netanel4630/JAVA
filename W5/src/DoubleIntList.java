@@ -1,12 +1,19 @@
-
+/*
+ * Class that handle a linked list
+ */
 public class DoubleIntList {
 
 	private static final int NULL = 0;
 	node head = null;
 	node tail = null;
 	
+	/************************************************************************
+	* Function: addToFirst()
+	* Purpose:  Add first node to list
+	* Input:    info - key value
+	* Return:   None
+	************************************************************************/
 	void addToFirst(int info) {
-	
 		if (head == null && tail == null) {
 			head = new node();
 			tail = head;
@@ -20,6 +27,12 @@ public class DoubleIntList {
 		}
 	}
 	
+	/************************************************************************
+	* Function: addToLast()
+	* Purpose:  Add last node to list
+	* Input:    info - key value
+	* Return:   None
+	************************************************************************/
 	void addToLast(int info) {
 		
 		if (head == null && tail == null) {
@@ -32,10 +45,15 @@ public class DoubleIntList {
 			temp.prev = tail;
 			tail.Next = temp;
 			tail = temp;
-		}
-		
+		}	
 	}
 	
+	/************************************************************************
+	* Function: deleteFirst()
+	* Purpose:  Delete first node from list
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	int deleteFirst() {
 		int temp = 0;
 		if(head != null) {
@@ -45,8 +63,14 @@ public class DoubleIntList {
 		}
 		System.out.println("Error in deleteFirst()");
 		return NULL;
-
 	}
+	
+	/************************************************************************
+	* Function: deleteLast()
+	* Purpose:  Delete last node from list
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	int deleteLast() {
 		int temp = 0;
 		if(tail != null) {
@@ -57,4 +81,5 @@ public class DoubleIntList {
 		System.out.println("Error in deleteLast()");
 		return NULL;			
 	}
+	
 }

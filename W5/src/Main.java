@@ -1,8 +1,8 @@
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
-		int first, last, i, n;
+		int i, n;
 		DoubleIntList doubleIntList = new DoubleIntList();
 		n = 10;
 		for(i=0; i < n; i++)
@@ -15,7 +15,7 @@ public class main {
 	     
 	     for(i=0; i < n; i++){
 	    	 System.out.println(doubleIntList.deleteLast());
-	    	 }
+	     }
 	     
 	     IntStack intStack = new  IntStack();
 	     for(i=0; i < n; i++)
@@ -23,7 +23,7 @@ public class main {
 	     System.out.println("Generated Stack:");
 	     for(i=0; i < n; i++){
 	    	 System.out.println(intStack.pop());
-	    	 } // for
+	     } // for
 	}
 
 }
