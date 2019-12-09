@@ -13,7 +13,7 @@ public class IntStack extends DoubleIntList{
 	* Input:    info - key value
 	* Return:   None
 	************************************************************************/
-	void push(int info) {
+	public void push(int info) {
 		addToFirst(info);
 	}
 	
@@ -23,7 +23,7 @@ public class IntStack extends DoubleIntList{
 	* Input:    None
 	* Return:   None
 	************************************************************************/
-	int pop() {
+	public int pop() {
 		return deleteFirst();		
 	}
 	
