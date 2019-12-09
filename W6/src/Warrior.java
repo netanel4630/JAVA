@@ -1,10 +1,10 @@
 
-public class Warrior extends Hero{
+public class Warrior extends Hero {
 	
 	private int attackPoints = 0;
 	private static int getNoWarrior = 0;
 	
-	Warrior(int lifePoints, int attackPoints){
+	Warrior(int lifePoints, int attackPoints) {
 		super(lifePoints);
 		this.attackPoints = attackPoints;
 		getNoWarrior++;
@@ -52,8 +52,7 @@ public class Warrior extends Hero{
 	* Input:    None
 	* Return:   String
 	************************************************************************/
-	public String toString()
-	{
+	public String toString() {
 		return "Warrior with " + lifePoints() +" lifePoints and " + attackPoints + " attackpoints";
 	}
 }

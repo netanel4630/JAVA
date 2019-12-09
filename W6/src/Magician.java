@@ -1,10 +1,10 @@
 
-public class Magician extends Hero{
+public class Magician extends Hero {
 
 	private int magicPoints = 0;
 	private static int getNoMagician  = 0;
 	
-	Magician(int lifePoints, int magicPoints){
+	Magician(int lifePoints, int magicPoints) {
 		super(lifePoints);
 		this.magicPoints = magicPoints;
 		getNoMagician++;
@@ -46,8 +46,7 @@ public class Magician extends Hero{
 	* Input:    None
 	* Return:   String
 	************************************************************************/
-	public String toString()
-	{
+	public String toString() {
 		return "Magician with "+ lifePoints() + " lifePoints and "+ magicPoints + " spellPoints";
 	}
 }
