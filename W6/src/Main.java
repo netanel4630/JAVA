@@ -28,7 +28,7 @@ public class Main {
 		heroes.get(0).attack(heroes.get(0));
 	}
 	
-		 static public void printNoHeroes() {
-			 System.out.println("There are "+Warrior.getNoWarrior()+ " Warriers and "+ Magician.getNoMagician()+" Magicians in the game");
-		 }
+	 static public void printNoHeroes() {
+		 System.out.println("There are "+Warrior.getNoWarrior()+ " Warriers and "+ Magician.getNoMagician()+" Magicians in the game");
+	 }
 }
