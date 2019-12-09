@@ -13,7 +13,7 @@ public class DoubleIntList {
 	* Input:    info - key value
 	* Return:   None
 	************************************************************************/
-	void addToFirst(int info) {
+	public void addToFirst(int info) {
 		if (head == null && tail == null) {
 			head = new node();
 			tail = head;
@@ -33,7 +33,7 @@ public class DoubleIntList {
 	* Input:    info - key value
 	* Return:   None
 	************************************************************************/
-	void addToLast(int info) {
+	public void addToLast(int info) {
 		
 		if (head == null && tail == null) {
 			head = new node();
@@ -54,7 +54,7 @@ public class DoubleIntList {
 	* Input:    None
 	* Return:   None
 	************************************************************************/
-	int deleteFirst() {
+	public int deleteFirst() {
 		int temp = 0;
 		if(head != null) {
 			temp = head.info;
@@ -71,7 +71,7 @@ public class DoubleIntList {
 	* Input:    None
 	* Return:   None
 	************************************************************************/
-	int deleteLast() {
+	public int deleteLast() {
 		int temp = 0;
 		if(tail != null) {
 			temp = tail.info;
