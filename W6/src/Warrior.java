@@ -10,6 +10,12 @@ public class Warrior extends Hero{
 		getNoWarrior++;
 	}
 	
+	/************************************************************************
+	* Function: attack()
+	* Purpose:  Attack opponent
+	* Input:    secondHero - second hero
+	* Return:   Object - return new hero if necessary  
+	************************************************************************/
 	@Override
 	public Object attack(Hero secondHero) {//TODO: change Hero to Object
 		if(this == secondHero) {
@@ -30,10 +36,22 @@ public class Warrior extends Hero{
 		return null;
 	}
 	
+	/************************************************************************
+	* Function: getNoWarrior()
+	* Purpose:  Get Numbers of Warriors
+	* Input:    None
+	* Return:   Numbers of Warriors
+	************************************************************************/
 	public static int getNoWarrior() {
 		return getNoWarrior;
 	}
 	
+	/************************************************************************
+	* Function: toString()
+	* Purpose:  Edit toString function in Warrior class
+	* Input:    None
+	* Return:   String
+	************************************************************************/
 	public String toString()
 	{
 		return "Warrior with " + lifePoints() +" lifePoints and " + attackPoints + " attackpoints";

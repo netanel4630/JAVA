@@ -10,22 +10,25 @@ public class Main {
 		printNoHeroes();
 		int initial = heroes.size();
 		for (int i=0; i<initial; ++i) {
-		for (int j=i+1; j<initial; ++j) {
-		newHero=(Hero) heroes.get(i).attack(heroes.get(j));
-		if (newHero !=null) heroes.add(newHero);
-		newHero=(Hero) heroes.get(j).attack(heroes.get(i));
-		if (newHero !=null) heroes.add(newHero);
-		}
+			for (int j=i+1; j<initial; ++j) {
+				newHero=(Hero) heroes.get(i).attack(heroes.get(j));
+				if (newHero !=null) {
+					heroes.add(newHero);
+				}
+				newHero=(Hero) heroes.get(j).attack(heroes.get(i));
+				if (newHero !=null) {
+					heroes.add(newHero);
+				}
+			}
 		}
 		printNoHeroes();
 		for (int i=0; i<heroes.size(); ++i) {
-		System.out.println("Hero "+i+ " is a "+ heroes.get(i));
+			System.out.println("Hero "+i+ " is a "+ heroes.get(i));
 		}
 		heroes.get(0).attack(heroes.get(0));
-		}
-		 static public void printNoHeroes(){
-		 System.out.println("There are "+Warrior.getNoWarrior()+
-		 " Warriers and "+
-		 Magician.getNoMagician()+" Magicians in the game");
+	}
+	
+		 static public void printNoHeroes() {
+			 System.out.println("There are "+Warrior.getNoWarrior()+ " Warriers and "+ Magician.getNoMagician()+" Magicians in the game");
 		 }
 }

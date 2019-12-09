@@ -10,6 +10,12 @@ public class Magician extends Hero{
 		getNoMagician++;
 	}
 	
+	/************************************************************************
+	* Function: attack()
+	* Purpose:  Attack opponent
+	* Input:    secondHero - second hero
+	* Return:   Object - return new hero if necessary  
+	************************************************************************/
 	@Override
 	public Object attack(Hero secondHero) {//TODO: change Hero to Object
 		if(this == secondHero) {
@@ -24,10 +30,22 @@ public class Magician extends Hero{
 		return null;
 	}
 	
+	/************************************************************************
+	* Function: getNoMagician()
+	* Purpose:  Get Numbers of Magicians
+	* Input:    None
+	* Return:   Numbers of Magicians
+	************************************************************************/
 	public static int getNoMagician() {
 		return getNoMagician;
 	}
 	
+	/************************************************************************
+	* Function: toString()
+	* Purpose:  Edit toString function in Magician class
+	* Input:    None
+	* Return:   String
+	************************************************************************/
 	public String toString()
 	{
 		return "Magician with "+ lifePoints() + " lifePoints and "+ magicPoints + " spellPoints";
