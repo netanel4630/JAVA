@@ -20,11 +20,12 @@ public class Main {
 		myStack.push(6);
 		System.out.println(myStack);
 		myStack.push(7);
+		myStack.undo();
+		System.out.println(myStack);		
+		myStack.pop();
 		System.out.println(myStack);
 		myStack.undo();
 		System.out.println(myStack);
-//		int i=(int)myStack.pop();
-//		myStack.undo();
 
 	}
 

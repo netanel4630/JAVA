@@ -2,6 +2,7 @@
 public class ObjectStack implements Stack {
 	
 	private static final int ZERO = 0;
+	private static final int ONE = 1;
 	
 	private Object []stack;
 	private int p; // "point" to last key in stack
@@ -10,7 +11,7 @@ public class ObjectStack implements Stack {
 	public ObjectStack(int n) {
 		stack = new Object[n];
 		p = 0;
-		stackSize = n - 1;
+		stackSize = n;
 	}
 	
 	public int size() {
@@ -21,7 +22,7 @@ public class ObjectStack implements Stack {
 		if (p == ZERO) {
 			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	public void clear() {
@@ -30,15 +31,14 @@ public class ObjectStack implements Stack {
 	
 	public void push( Object element ) {
 		try {
-			if (p + 1 > stackSize) {
+			if (p == stackSize) {
 				throw new StackFullException();
 			}
-			stack[p] = element;
-			p++;
+			stack[p++] = element;
 		}
 		
 		catch (StackFullException e) {
-			
+
 		}
 	}
 	
@@ -46,15 +46,14 @@ public class ObjectStack implements Stack {
 		if (p == ZERO) {
 			return null;
 		}
-		return stack[p];
+		return stack[p - ONE];
 	}
 	
 	public Object pop() {
 		if (p == ZERO) {
 			return null;
 		}
-		p--;
-		return stack[p + 1];
+		return stack[--p];
 	
 	}	
 	
