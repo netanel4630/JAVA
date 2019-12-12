@@ -6,3 +6,4 @@
 # W4: Classes
 # W5: Inheritance
 # W6: Polymorphism
+# W7: Exceptions
