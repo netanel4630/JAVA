@@ -1,4 +1,6 @@
-
+/*
+ * Class for handle exception if stack full
+ */
 public class StackFullException extends RuntimeException {
 	
 	/**

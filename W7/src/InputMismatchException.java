@@ -1,4 +1,6 @@
-
+/*
+ * Class for handle exception if element is not full
+ */
 public class InputMismatchException extends RuntimeException {
 
 	/**

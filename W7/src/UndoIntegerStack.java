@@ -1,5 +1,7 @@
 import java.util.ArrayList;
-
+/*
+ * Class for undo last action in stack
+ */
 public class UndoIntegerStack extends IntegerStack {
 	
 	private static int DUMMY = 0;
@@ -15,18 +17,36 @@ public class UndoIntegerStack extends IntegerStack {
 		undoList = new  ArrayList<Integer>();
 	}
 	
+	/************************************************************************
+	* Function: push()
+	* Purpose:  Push element to stack and save the action
+	* Input:    element - key
+	* Return:   None
+	************************************************************************/
 	public void push(int element) {
 		undoList.add(DUMMY);
 		undoList.add(PUSH);
 		super.push(element);
 	}
 	
+	/************************************************************************
+	* Function: pop()
+	* Purpose:  Pop element to stack and save the action
+	* Input:    None
+	* Return:   element - key
+	************************************************************************/
 	public Object pop() {
 		undoList.add((int)peek());
 		undoList.add(POP);
 		return super.pop();
 	}
 	
+	/************************************************************************
+	* Function: undo()
+	* Purpose:  Undo the last action
+	* Input:    None
+	* Return:   None
+	************************************************************************/
 	public void undo() {
 		if (undoList.get(undoList.size() - ACTION_LOCATION) == POP) {
 			super.push(undoList.get(undoList.size() - VALUE_LOCATION));
