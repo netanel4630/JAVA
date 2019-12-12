@@ -10,7 +10,7 @@ public class ObjectStack implements Stack {
 	public ObjectStack(int n) {
 		stack = new Object[n];
 		p = 0;
-		stackSize = n;
+		stackSize = n - 1;
 	}
 	
 	public int size() {
@@ -30,7 +30,10 @@ public class ObjectStack implements Stack {
 	
 	public void push( Object element ) {
 		try {
-			stack[p + 1] = element;
+			if (p + 1 > stackSize) {
+				throw new StackFullException();
+			}
+			stack[p] = element;
 			p++;
 		}
 		
@@ -51,6 +54,25 @@ public class ObjectStack implements Stack {
 			return null;
 		}
 		p--;
-		return stack[p + 1]
+		return stack[p + 1];
+	
+	}	
+	
+	public String toString()
+	{
+		String str="(";
+
+		for(int i = 0; i < p; i++) {
+			str += stack[i] + ",";
+		}
+		
+		//remove the last ","
+		if (p > ZERO) {
+			str = str.substring(0, str.length() - 1);
+		}
+		
+		str += ")";
+		
+		return str;
 	}
 }
