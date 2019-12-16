@@ -4,7 +4,7 @@ public class Magician extends Hero {
 	private int magicPoints = 0;
 	private static int getNoMagician  = 0;
 	
-	Magician(int lifePoints, int magicPoints) {
+	public Magician(int lifePoints, int magicPoints) {
 		super(lifePoints);
 		this.magicPoints = magicPoints;
 		getNoMagician++;
