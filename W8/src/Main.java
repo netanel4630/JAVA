@@ -1,4 +1,6 @@
-
+/*
+ * class that create 10 Threads of Tsum 
+ */
 public class Main {
 	private static final int NUM_OF_THREAD = 10;
 	
