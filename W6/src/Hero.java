@@ -3,7 +3,7 @@ public abstract class Hero {
 	
 	private int lifePoints = 0;
 	
-	Hero(int lifepoint){
+	public Hero(int lifepoint){
 		this.lifePoints = lifepoint;
 	}
 	
