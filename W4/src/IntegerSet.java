@@ -4,19 +4,19 @@ public class IntegerSet {
 	boolean  integerSet[];
 	private static final int INTEGER_SET_SIZE = 100;
 	
-	IntegerSet(){
+	public IntegerSet(){
 		integerSet = new boolean [INTEGER_SET_SIZE]; //init all to false
 	}
 	
 	
-	IntegerSet(boolean integerSet[]){
+	public IntegerSet(boolean integerSet[]){
 		this.integerSet = new boolean [INTEGER_SET_SIZE]; //init all to false
 		for(int i = 0 ; i < INTEGER_SET_SIZE ; i++) {		
 			this.integerSet[i] = integerSet[i]; //init 
 		}	
 	}
 	
-	IntegerSet(int integerSet[]){
+	public IntegerSet(int integerSet[]){
 		this.integerSet = new boolean [INTEGER_SET_SIZE]; //init all to false
 		
 		for(int i = 0 ; i < integerSet.length ; i++) {
