@@ -3,7 +3,7 @@
  */
 public class IntStack extends DoubleIntList{
 	
-	IntStack() {
+	public IntStack() {
 		super();
 	}
 	
