@@ -4,7 +4,7 @@ public class Warrior extends Hero {
 	private int attackPoints = 0;
 	private static int getNoWarrior = 0;
 	
-	Warrior(int lifePoints, int attackPoints) {
+	public Warrior(int lifePoints, int attackPoints) {
 		super(lifePoints);
 		this.attackPoints = attackPoints;
 		getNoWarrior++;
